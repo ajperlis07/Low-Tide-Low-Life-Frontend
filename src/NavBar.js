@@ -9,6 +9,8 @@ function NavBar() {
             <NavLink to="/fish">All Fish</NavLink>
             <br></br>
             <NavLink to="/recipes"> All Recipes</NavLink>
+            <br></br>
+            <NavLink to="/recipeform">Create A New Recipe</NavLink>
         </div>
     )
 }

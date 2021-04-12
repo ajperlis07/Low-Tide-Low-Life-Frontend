@@ -2,10 +2,33 @@ import './App.css';
 import Header from './Header';
 import NavBar from './NavBar';
 import { Route, Switch } from "react-router-dom";
-import FishContainer from "./FishContainer";
 import { useEffect, useState} from 'react';
+import RecipeList from "./RecipeList"
+import FishList from "./FishList";
+import RecipeForm from "./RecipeForm";
 
 function App() {
+
+  const [fish, setFish] = useState([]);
+
+  useEffect(() => {
+      fetch('http://localhost:3000/fish')
+      .then(res => res.json())
+      .then(data => setFish(data))
+  },[])
+
+  const [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+      fetch('http://localhost:3000/recipes')
+      .then(res => res.json())
+      .then(data => setRecipes(data))
+  },[])
+
+  function handleNewRecipe(newRecipe) {
+    const updatedRecipes = [...recipes, newRecipe]
+    setRecipes(updatedRecipes)
+  }
 
  
 
@@ -15,14 +38,14 @@ function App() {
       <NavBar />
       <Switch>
         <Route path="/fish">
-          <FishContainer />
-        </Route>
-        {/* <Route path="/">
-
+          <FishList fish={fish}/>
         </Route>
         <Route path="/recipes">
-
-        </Route> */}
+          <RecipeList recipes={recipes} setRecipes={setRecipes}/>
+        </Route>
+        <Route path="/recipeform">
+          <RecipeForm fish={fish} recipes={recipes} handleNewRecipe={handleNewRecipe}/>
+        </Route>
       </Switch>
     </section>
   );
