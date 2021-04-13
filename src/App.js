@@ -6,10 +6,12 @@ import { useEffect, useState} from 'react';
 import RecipeList from "./RecipeList"
 import FishList from "./FishList";
 import RecipeForm from "./RecipeForm";
+import FishSearch from "./FishSearch";
 
 function App() {
 
   const [fish, setFish] = useState([]);
+  const[fishSearchCon, setFishSearchCon] = useState("")
 
   useEffect(() => {
       fetch('http://localhost:3000/fish')
@@ -38,13 +40,14 @@ function App() {
       <NavBar />
       <Switch>
         <Route path="/fish">
-          <FishList fish={fish}/>
+          <FishSearch setFishSearchCon={setFishSearchCon}/>
+          <FishList fish={fish} fishSearchCon={fishSearchCon}/>
         </Route>
         <Route path="/recipes">
           <RecipeList recipes={recipes} setRecipes={setRecipes}/>
         </Route>
         <Route path="/recipeform">
-          <RecipeForm fish={fish} recipes={recipes} handleNewRecipe={handleNewRecipe}/>
+          <RecipeForm fish={fish}  recipes={recipes} handleNewRecipe={handleNewRecipe}/>
         </Route>
       </Switch>
     </section>

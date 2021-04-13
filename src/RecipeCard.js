@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-function RecipeCard({story, instruction, id, setRecipes}) {
+function RecipeCard({story, instruction, id, setRecipes, illustration, fishName, calories, carbohydrate, cholesterol, fat, protein, satFat, selenium, serving, sodium}) {
 
     const [isFormStory, setIsFormStory] = useState(false)
     const [isFormInstruction, setIsFormInstruction] = useState(false)
@@ -16,6 +16,12 @@ function RecipeCard({story, instruction, id, setRecipes}) {
 
         })
         setIsFormStory(!isFormStory)
+        setRecipes(recipes => recipes.map(recipe => {
+            if(recipe.id === id){
+                return {...recipe, story: updatedStory}
+            }
+            else  {return (recipe)}
+        }))
     }
 
     function handleInstructionUpdate(e){
@@ -28,6 +34,12 @@ function RecipeCard({story, instruction, id, setRecipes}) {
 
         })
         setIsFormInstruction(!isFormInstruction)
+        setRecipes(recipes => recipes.map(recipe => {
+            if(recipe.id === id){
+                return {...recipe, instruction: updatedInstruction}
+            }
+            else  {return (recipe)}
+        }))
     }    
 
     function handleStoryChange(e){
@@ -52,6 +64,8 @@ function RecipeCard({story, instruction, id, setRecipes}) {
 
     return (
         <div>
+            <h1>{fishName}</h1>
+            <img src={illustration} alt={fishName} />
             {isFormInstruction ? (
                 <h2>
                     <form onSubmit={handleInstructionUpdate}>
@@ -59,7 +73,7 @@ function RecipeCard({story, instruction, id, setRecipes}) {
                         <button type="submit">Update Instructions</button>
                     </form>
                 </h2>
-            ) : (<p onClick={(e) => setIsFormInstruction(!isFormInstruction)}> {updatedInstruction}</p>
+            ) : (<h2 onClick={(e) => setIsFormInstruction(!isFormInstruction)}> Recipe: {updatedInstruction}</h2>
             )}
              {isFormStory ? (
                 <h2>
@@ -68,8 +82,19 @@ function RecipeCard({story, instruction, id, setRecipes}) {
                         <button type="submit">Update Story</button>
                     </form>
                 </h2>
-            ) : (<p onClick={(e) => setIsFormStory(!isFormStory)}> {updatedStory}</p>
+            ) : (<h2 onClick={(e) => setIsFormStory(!isFormStory)}> Fish Story: {updatedStory}</h2>
             )}
+            <ul> <h2>Nutrional Facts</h2>
+                <li>Calories: {calories}</li>
+                <li>Carbs: {carbohydrate}</li>
+                <li>Cholesterol: {cholesterol}</li>
+                <li>Fat: {fat}</li>
+                <li>Protein: {protein}</li>
+                <li>Saturated Fat: {satFat}</li>
+                <li>Selenium: {selenium}</li>
+                <li>Serving: {serving}</li>
+                <li>Sodium: {sodium}</li>
+            </ul>
             <button onClick={handleDelete}>Delete Recipe</button>
         </div>
     )

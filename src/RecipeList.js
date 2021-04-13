@@ -12,6 +12,17 @@ function RecipeList({recipes, setRecipes}) {
         story={recipe.story}
         instruction={recipe.instruction}
         setRecipes={setRecipes}
+        illustration={recipe.fish.illustration}
+        fishName={recipe.fish.species_name}
+        calories={recipe.fish.calories}
+        carbohydrate={recipe.fish.carbohydrate}
+        cholesterol={recipe.fish.cholesterol}
+        fat={recipe.fish.fat_total}
+        protein={recipe.fish.protein}
+        satFat={recipe.fish.saturated_fat}
+        selenium={recipe.fish.selenium}
+        serving={recipe.fish.serving_weight}
+        sodium={recipe.fish.sodium}
         />)
     })
     return (
