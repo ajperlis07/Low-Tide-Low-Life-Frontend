@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-function RecipeCard({story, instruction, id, setRecipes, illustration, fishName, calories, carbohydrate, cholesterol, fat, protein, satFat, selenium, serving, sodium}) {
+function RecipeCard({story, instruction, id, description, setRecipes, illustration, fishName, calories, carbohydrate, cholesterol, fat, protein, satFat, selenium, serving, sodium}) {
 
     const [isFormStory, setIsFormStory] = useState(false)
     const [isFormInstruction, setIsFormInstruction] = useState(false)
@@ -66,6 +66,7 @@ function RecipeCard({story, instruction, id, setRecipes, illustration, fishName,
         <div>
             <h1>{fishName}</h1>
             <img src={illustration} alt={fishName} />
+            <h2> Recipe Name: {description}</h2>
             {isFormInstruction ? (
                 <h2>
                     <form onSubmit={handleInstructionUpdate}>

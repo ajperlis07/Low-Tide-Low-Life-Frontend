@@ -11,6 +11,7 @@ function RecipeList({recipes, setRecipes}) {
         id={recipe.id}
         story={recipe.story}
         instruction={recipe.instruction}
+        description={recipe.description}
         setRecipes={setRecipes}
         illustration={recipe.fish.illustration}
         fishName={recipe.fish.species_name}
