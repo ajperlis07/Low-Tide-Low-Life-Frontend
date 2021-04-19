@@ -87,7 +87,9 @@ function RecipeCard({story, instruction, handleNewFavorite, fishId, id, descript
             <h1>{fishName}</h1>
             <img src={illustration} alt={fishName} />
             <h2> Recipe Name: {description}</h2>
-            {isFormInstruction ? (
+            <h2> Recipe: {updatedInstruction}</h2>
+            <h2> Fish Story: {updatedStory}</h2>
+            {/* {isFormInstruction ? (
                 <h2>
                     <form onSubmit={handleInstructionUpdate}>
                         <textarea onChange={handleInstructionChange} type="text" value={updatedInstruction} />
@@ -104,7 +106,7 @@ function RecipeCard({story, instruction, handleNewFavorite, fishId, id, descript
                     </form>
                 </h2>
             ) : (<h2 onClick={(e) => setIsFormStory(!isFormStory)}> Fish Story: {updatedStory}</h2>
-            )}
+            )} */}
             <ul> <h2>Nutrional Facts</h2>
                 <li className="ul-bullets">Calories: {calories}</li>
                 <li className="ul-bullets">Carbs: {carbohydrate}</li>
@@ -116,6 +118,24 @@ function RecipeCard({story, instruction, handleNewFavorite, fishId, id, descript
                 <li className="ul-bullets">Serving: {serving}</li>
                 <li className="ul-bullets">Sodium: {sodium}</li>
             </ul>
+            {isFormInstruction ? (
+                <h2>
+                    <form onSubmit={handleInstructionUpdate}>
+                        <textarea onChange={handleInstructionChange} type="text" value={updatedInstruction} />
+                        <button type="submit">Update Recipe</button>
+                    </form>
+                </h2>
+            ) : (<button onClick={(e) => setIsFormInstruction(!isFormInstruction)}> Update Recipe</button>
+            )}
+             {isFormStory ? (
+                <h2>
+                    <form onSubmit={handleStoryUpdate}>
+                        <textarea onChange={handleStoryChange} type="text" value={updatedStory} />
+                        <button type="submit">Update Fish Story</button>
+                    </form>
+                </h2>
+            ) : (<button onClick={(e) => setIsFormStory(!isFormStory)}> Update Fish Story </button>
+            )}
             <button onClick={handleDelete}>Delete Recipe</button>
             <button onClick={handleFavorite}>Add Recipe to Favorites</button>
         </div>
