@@ -3,9 +3,11 @@ import RecipeCard from "./RecipeCard";
 
 
 
-function RecipeList({recipes, setRecipes, handleNewFavorite}) {
+function RecipeList({recipes, setRecipes, handleNewFavorite, recipeSearchCon}) {
+
+    const filterRecipes = recipes.filter((recipe) => {return recipe.description.toLowerCase().includes(recipeSearchCon)})
    
-    const recipeCards = recipes.map((recipe) => {
+    const recipeCards = filterRecipes.map((recipe) => {
         return (<RecipeCard 
         key={recipe.id}
         id={recipe.id}

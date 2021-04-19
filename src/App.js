@@ -8,12 +8,14 @@ import FishList from "./FishList";
 import RecipeForm from "./RecipeForm";
 import FishSearch from "./FishSearch";
 import FavoriteRecipe from "./FavoriteRecipe";
+import RecipeSearch from "./RecipeSearch"
 
 function App() {
 
   const [fish, setFish] = useState([]);
   const [fishSearchCon, setFishSearchCon] = useState("")
   const [favorites, setFavorites] = useState([]) 
+  const [recipeSearchCon, setRecipeSearchCon] = useState("")
 
   useEffect(() => {
     fetch('http://localhost:3000/favorites')
@@ -57,7 +59,8 @@ function handleNewFavorite(newFavorite) {
           <FishList fish={fish} fishSearchCon={fishSearchCon}/>
         </Route>
         <Route path="/recipes">
-          <RecipeList recipes={recipes} setRecipes={setRecipes} handleNewFavorite={handleNewFavorite}/>
+          <RecipeSearch setRecipeSearchCon={setRecipeSearchCon}/>
+          <RecipeList recipeSearchCon={recipeSearchCon} recipes={recipes} setRecipes={setRecipes} handleNewFavorite={handleNewFavorite}/>
         </Route>
         <Route path="/favorites">
           <FavoriteRecipe favorites={favorites} setFavorites={setFavorites} />

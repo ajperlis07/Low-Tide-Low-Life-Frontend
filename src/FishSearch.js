@@ -9,7 +9,7 @@ function FishSearch({setFishSearchCon}) {
       <input
         type="text"
         id="search"
-        placeholder="Type a name to search..."
+        placeholder="Type a Name to search..."
         onChange={(e) => setFishSearchCon(e.target.value)}
       />
     </div>
