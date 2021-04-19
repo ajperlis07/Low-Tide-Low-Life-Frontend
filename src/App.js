@@ -7,11 +7,24 @@ import RecipeList from "./RecipeList"
 import FishList from "./FishList";
 import RecipeForm from "./RecipeForm";
 import FishSearch from "./FishSearch";
+import FavoriteRecipe from "./FavoriteRecipe";
 
 function App() {
 
   const [fish, setFish] = useState([]);
-  const[fishSearchCon, setFishSearchCon] = useState("")
+  const [fishSearchCon, setFishSearchCon] = useState("")
+  const [favorites, setFavorites] = useState([]) 
+
+  useEffect(() => {
+    fetch('http://localhost:3000/favorites')
+    .then(res => res.json())
+    .then(data => setFavorites(data))
+}, []) 
+
+function handleNewFavorite(newFavorite) {
+  const updatedFavorites = [...favorites, newFavorite]
+  setFavorites(updatedFavorites)
+}
 
   useEffect(() => {
       fetch('http://localhost:3000/fish')
@@ -44,7 +57,10 @@ function App() {
           <FishList fish={fish} fishSearchCon={fishSearchCon}/>
         </Route>
         <Route path="/recipes">
-          <RecipeList recipes={recipes} setRecipes={setRecipes}/>
+          <RecipeList recipes={recipes} setRecipes={setRecipes} handleNewFavorite={handleNewFavorite}/>
+        </Route>
+        <Route path="/favorites">
+          <FavoriteRecipe favorites={favorites} setFavorites={setFavorites} />
         </Route>
         <Route path="/recipeform">
           <RecipeForm fish={fish}  recipes={recipes} handleNewRecipe={handleNewRecipe}/>

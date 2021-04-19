@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-function RecipeCard({story, instruction, id, description, setRecipes, illustration, fishName, calories, carbohydrate, cholesterol, fat, protein, satFat, selenium, serving, sodium}) {
+function RecipeCard({story, instruction, handleNewFavorite, fishId, id, description, setRecipes, illustration, fishName, calories, carbohydrate, cholesterol, fat, protein, satFat, selenium, serving, sodium}) {
 
     const [isFormStory, setIsFormStory] = useState(false)
     const [isFormInstruction, setIsFormInstruction] = useState(false)
@@ -22,6 +22,26 @@ function RecipeCard({story, instruction, id, description, setRecipes, illustrati
             }
             else  {return (recipe)}
         }))
+    }
+
+    function handleFavorite(e) {
+        e.preventDefault();
+        
+
+        const data = {
+            user_id: 1,
+            recipe_id: id,
+            fish_id: fishId
+        }
+        fetch('http://localhost:3000/favorites', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+            })
+            .then(res => res.json())
+            .then(newFavorite => handleNewFavorite(newFavorite))
     }
 
     function handleInstructionUpdate(e){
@@ -97,6 +117,7 @@ function RecipeCard({story, instruction, id, description, setRecipes, illustrati
                 <li>Sodium: {sodium}</li>
             </ul>
             <button onClick={handleDelete}>Delete Recipe</button>
+            <button onClick={handleFavorite}>Add Recipe to Favorites</button>
         </div>
     )
 }

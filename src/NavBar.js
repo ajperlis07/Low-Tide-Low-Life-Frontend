@@ -11,6 +11,8 @@ function NavBar() {
             <NavLink to="/recipes"> All Recipes</NavLink>
             <br></br>
             <NavLink to="/recipeform">Create A New Recipe</NavLink>
+            <br></br>
+            <NavLink to="/favorites">Favorites</NavLink>
         </div>
     )
 }

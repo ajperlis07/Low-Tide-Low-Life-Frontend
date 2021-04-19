@@ -3,7 +3,7 @@ import RecipeCard from "./RecipeCard";
 
 
 
-function RecipeList({recipes, setRecipes}) {
+function RecipeList({recipes, setRecipes, handleNewFavorite}) {
    
     const recipeCards = recipes.map((recipe) => {
         return (<RecipeCard 
@@ -24,6 +24,8 @@ function RecipeList({recipes, setRecipes}) {
         selenium={recipe.fish.selenium}
         serving={recipe.fish.serving_weight}
         sodium={recipe.fish.sodium}
+        handleNewFavorite={handleNewFavorite}
+        fishId={recipe.fish.id}
         />)
     })
     return (
