@@ -12,4 +12,69 @@ code {
     monospace;
 }
 
+.cards {
+  list-style: none;
+}
+
+.card {
+  margin: 1rem;
+}
+.card img {
+  width: 100%;
+}
+.card button {
+  margin-top: 0.5rem;
+}
+@media (min-width: 768px) {
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .card {
+    width: calc(33% - 2rem);
+  }
+}
+@media (min-width: 1024px) {
+  .card {
+    width: calc(25% - 2rem);
+  }
+}
+@media (min-width: 1200px) {
+  .card {
+    width: calc(20% - 2rem);
+  }
+}
+
+.card {
+  text-align: center;
+  border: grey solid 1px;
+  padding: 1rem;
+  width: fit-content;
+  height: fit-content;
+  display: inline-grid;
+  margin: 1rem 2rem;
+  box-shadow: 3px 4px #000000;
+  word-wrap: break-word;
+  block-size: fit-content
+}
+
+.ul-bullets {
+  list-style-type: none;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 300px;
+  object-fit: scale-down
+}
+
+button {
+  width: 250px;
+  padding: 10px 24px;
+  margin: 0 auto;
+  display: block;
+}
 

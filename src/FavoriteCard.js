@@ -16,22 +16,22 @@ function FavoriteCard({ id, setFavorites, story, instruction, description, setRe
         ))
     }
 
-    return <div>
+    return <div className="card">
             <h1>{fishName}</h1>
             <img src={illustration} alt={fishName} />
             <h2> Recipe Name: {description}</h2>
             <h3> Recipe: {instruction}</h3>
             <h3>Fish Story: {story}</h3>
             <ul> <h2>Nutrional Facts</h2>
-                <li>Calories: {calories}</li>
-                <li>Carbs: {carbohydrate}</li>
-                <li>Cholesterol: {cholesterol}</li>
-                <li>Fat: {fat}</li>
-                <li>Protein: {protein}</li>
-                <li>Saturated Fat: {satFat}</li>
-                <li>Selenium: {selenium}</li>
-                <li>Serving: {serving}</li>
-                <li>Sodium: {sodium}</li>
+                <li className="ul-bullets">Calories: {calories}</li>
+                <li className="ul-bullets">Carbs: {carbohydrate}</li>
+                <li className="ul-bullets">Cholesterol: {cholesterol}</li>
+                <li className="ul-bullets">Fat: {fat}</li>
+                <li className="ul-bullets">Protein: {protein}</li>
+                <li className="ul-bullets">Saturated Fat: {satFat}</li>
+                <li className="ul-bullets">Selenium: {selenium}</li>
+                <li className="ul-bullets">Serving: {serving}</li>
+                <li className="ul-bullets">Sodium: {sodium}</li>
             </ul>
             <button onClick={handleFavoriteDelete}>Delete Favorite</button>
      </div>

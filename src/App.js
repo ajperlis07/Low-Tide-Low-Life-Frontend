@@ -8,7 +8,8 @@ import FishList from "./FishList";
 import RecipeForm from "./RecipeForm";
 import FishSearch from "./FishSearch";
 import FavoriteRecipe from "./FavoriteRecipe";
-import RecipeSearch from "./RecipeSearch"
+import RecipeSearch from "./RecipeSearch";
+import HomePage from "./HomePage"
 
 function App() {
 
@@ -54,6 +55,9 @@ function handleNewFavorite(newFavorite) {
       <Header />
       <NavBar />
       <Switch>
+        {/* <Route path="/">
+          <HomePage />
+        </Route> */}
         <Route path="/fish">
           <FishSearch setFishSearchCon={setFishSearchCon}/>
           <FishList fish={fish} fishSearchCon={fishSearchCon}/>
@@ -67,6 +71,9 @@ function handleNewFavorite(newFavorite) {
         </Route>
         <Route path="/recipeform">
           <RecipeForm fish={fish}  recipes={recipes} handleNewRecipe={handleNewRecipe}/>
+        </Route>
+        <Route path="/">
+          <HomePage />
         </Route>
       </Switch>
     </section>
