@@ -9,6 +9,7 @@ function RecipeSearch({setRecipeSearchCon}) {
       <input
         type="text"
         id="search"
+        className="search-input"
         placeholder="Type a Recipe Name to search..."
         onChange={(e) => setRecipeSearchCon(e.target.value)}
       />

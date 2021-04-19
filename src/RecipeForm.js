@@ -55,6 +55,7 @@ function RecipeForm({fish, recipes, handleNewRecipe}) {
             <select type="text" name="Fish" onChange={handleFishOnChange} value={fishId}>
                 {dropDown}
             </select>
+            <br></br>
             <input type="text" onChange={handleDescriptionOnChange} value={description} placeholder="Recipe Name Here"/>
             <textarea type="text" onChange={handleStoryOnChange} value={story} placeholder="Fish Story Here" />
             <textarea type="text" onChange={handleInstructionOnChange} value={instruction} placeholder="Type Recipe Here" />
