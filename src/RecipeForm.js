@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import SelectSearch from 'react-select-search';
 
 function RecipeForm({fish, recipes, handleNewRecipe}) {
    const [instruction, setInstruction] = useState("")

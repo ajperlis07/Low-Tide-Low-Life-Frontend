@@ -19,10 +19,10 @@ function FavoriteCard({ id, setFavorites, story, instruction, description, setRe
     return <div className="card">
             <h1>{fishName}</h1>
             <img src={illustration} alt={fishName} />
-            <h2> Recipe Name: {description}</h2>
-            <h3> Recipe: {instruction}</h3>
-            <h3>Fish Story: {story}</h3>
-            <ul> <h2>Nutrional Facts</h2>
+            <h2> Recipe Name: </h2> <p>{description}</p>
+            <h2> Recipe: </h2> <p>{instruction}</p>
+            <h2>Fish Story: </h2> <p> {story}</p>
+            <ul> <h2>Nutritional Facts</h2>
                 <li className="ul-bullets">Calories: {calories}</li>
                 <li className="ul-bullets">Carbs: {carbohydrate}</li>
                 <li className="ul-bullets">Cholesterol: {cholesterol}</li>
