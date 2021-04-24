@@ -89,24 +89,6 @@ function RecipeCard({story, instruction, handleNewFavorite, fishId, id, descript
             <h2> Recipe Name: </h2> <p>{description}</p>
             <h2> Recipe: </h2> <p>{updatedInstruction}</p>
             <h2> Fish Story: </h2> <p>{updatedStory}</p>
-            {/* {isFormInstruction ? (
-                <h2>
-                    <form onSubmit={handleInstructionUpdate}>
-                        <textarea onChange={handleInstructionChange} type="text" value={updatedInstruction} />
-                        <button type="submit">Update Instructions</button>
-                    </form>
-                </h2>
-            ) : (<h2 onClick={(e) => setIsFormInstruction(!isFormInstruction)}> Recipe: {updatedInstruction}</h2>
-            )}
-             {isFormStory ? (
-                <h2>
-                    <form onSubmit={handleStoryUpdate}>
-                        <textarea onChange={handleStoryChange} type="text" value={updatedStory} />
-                        <button type="submit">Update Story</button>
-                    </form>
-                </h2>
-            ) : (<h2 onClick={(e) => setIsFormStory(!isFormStory)}> Fish Story: {updatedStory}</h2>
-            )} */}
             <ul> <h2>Nutritional Facts</h2>
                 <li className="ul-bullets">Calories: {calories}</li>
                 <li className="ul-bullets">Carbs: {carbohydrate}</li>
