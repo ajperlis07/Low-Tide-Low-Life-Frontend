@@ -4,7 +4,7 @@ import SelectSearch from 'react-select-search';
 function RecipeForm({fish, recipes, handleNewRecipe}) {
    const [instruction, setInstruction] = useState("")
    const [story, setStory] = useState("")
-   const [fishId, setFishId]= useState()
+   const [fishId, setFishId]= useState(1)
    const [description, setDescription] = useState()
 
    const dropDown = fish.map((fish) => {
